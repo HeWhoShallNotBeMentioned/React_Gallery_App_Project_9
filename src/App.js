@@ -3,8 +3,9 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 //App components
 import './App.css';
-import Header from "./Header";
-import Home from "./Home";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import NotFound from "./components/NotFound";
 
 const App = () => (
 
@@ -12,8 +13,8 @@ const App = () => (
     <div className="App">
       <Header />
       <Switch>
-        <Route path="/" component={Home} />
-
+        <Route exact path="/" component={Home} />
+        <Route component={NotFound} />
       </Switch>
     </div>
   </BrowserRouter>
