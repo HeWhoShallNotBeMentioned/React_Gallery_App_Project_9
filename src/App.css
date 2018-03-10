@@ -9,10 +9,6 @@
   color: black;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
+.search-buttons {
+  margin: 10px;
 }
