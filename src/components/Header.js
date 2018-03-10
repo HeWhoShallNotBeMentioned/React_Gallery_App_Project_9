@@ -1,18 +1,17 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import {ButtonToolbar, Button} from 'react-bootstrap';
+import {Button, Grid} from 'react-bootstrap';
+
+import SearchForm from './SearchForm';
 
 const Header = () => (
   <header className="App-header">
-    <div>
-      <ButtonToolbar>
-        <Button bsStyle="primary" bsSize="large">Large button</Button>
-        <Button bsStyle="primary" bsSize="large">Default button</Button>
-        <Button bsStyle="primary" bsSize="large">Default button</Button>
-
-      </ButtonToolbar>
-    </div>
-
+      <SearchForm />
+      <Grid>
+        <Button bsStyle="primary" bsSize="medium">Steve Yzerman</Button>
+        <Button bsStyle="primary" bsSize="medium">Miguel Cabrera</Button>
+        <Button bsStyle="primary" bsSize="medium">Barry Sanders</Button>
+      </Grid>
     <h1 className="App-title">Welcome to React</h1>
   </header>
 
