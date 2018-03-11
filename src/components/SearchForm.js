@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Button, Grid, FormGroup, InputGroup, FormControl, Row, Col} from 'react-bootstrap';
+import Retrieve from "./Retrieve";
+
 export default class SearchForm extends Component {
 
   state = {
