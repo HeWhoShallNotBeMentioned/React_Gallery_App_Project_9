@@ -10,6 +10,7 @@ import SearchForm from './components/SearchForm';
 import NotFound from "./components/NotFound";
 import Retreive from "./components/Retrieve";
 import Navigation from "./components/Navigation";
+import PicList from "./components/PicList";
 import axios from 'axios';
 
 import apiKey from "./config";
@@ -27,7 +28,7 @@ export default class App extends Component {
 
  componentDidMount(query) {
 
-   axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&page=1&format=json&nojsoncallback=1`)
+   axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&page=1&format=json&extras=url_n&nojsoncallback=1`)
    .then(response => {
      this.setState({
        pics: response.data.photos,
@@ -42,7 +43,7 @@ export default class App extends Component {
 
 
 render() {
-  console.log(this.state.gifs);
+
     return (
       <div>
         <div className="">
@@ -53,7 +54,7 @@ render() {
           </div>
         </div>
         <div className="">
-
+          <PicList data={this.state.pics}/>
         </div>
       </div>
 )}};
