@@ -6,19 +6,54 @@ import {} from 'react-bootstrap';
 import './App.css';
 import Header from "./components/Header";
 import Home from "./components/Home";
+import SearchForm from './components/SearchForm';
 import NotFound from "./components/NotFound";
+import Retreive from "./components/Retrieve";
+import Navigation from "./components/Navigation";
+import axios from 'axios';
 
-const App = () => (
+import apiKey from "./config";
 
-  <BrowserRouter>
-    <div className="App">
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route component={NotFound} />
-      </Switch>
-    </div>
-  </BrowserRouter>
-);
 
-export default App;
+export default class App extends Component {
+
+  constructor() {
+   super();
+   this.state = {
+     pics: [],
+     loading: true
+   };
+ }
+
+ componentDidMount(query) {
+
+   axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&page=1&format=json&nojsoncallback=1`)
+   .then(response => {
+     this.setState({
+       pics: response.data,
+       loading: false
+     });
+   })
+   .catch(error => {
+     console.log('Error fetching and parsing data', error);
+   });
+ }
+
+
+
+render() {
+  console.log(this.state.gifs);
+    return (
+      <div>
+        <div className="">
+          <Header />
+          <div className="">
+            <h1 className="">Pictues</h1>
+            <SearchForm />
+          </div>
+        </div>
+        <div className="">
+
+        </div>
+      </div>
+)}};
