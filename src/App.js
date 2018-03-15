@@ -28,7 +28,7 @@ export default class App extends Component {
 
  componentDidMount(query) {
 
-   axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&page=1&format=json&extras=url_n&nojsoncallback=1`)
+   axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&page=1&format=json&nojsoncallback=1`)
    .then(response => {
      this.setState({
        pics: response.data.photos,
