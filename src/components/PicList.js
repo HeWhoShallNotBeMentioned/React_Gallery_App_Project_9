@@ -7,7 +7,7 @@ const PicList = (props) => {
   let results = props.data;
   console.log("results:  ", results);
   let photos = results.map( pic =>
-      <Pic url={`https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`} />
+      <Pic url={`https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`} key={pic.id} />
     );
 
   return(
