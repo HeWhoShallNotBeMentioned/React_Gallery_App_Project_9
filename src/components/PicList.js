@@ -3,16 +3,16 @@ import Pic from './Pic';
 import App from '../App.js';
 
 const PicList = (props) => {
-  console.log(props.data.photo)
-  let results = props.data.photo;
-  console.log(results);
-  let photosPic = results.map( photo =>
-      <Pic url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} />
-  );
+
+  let results = props.data;
+  console.log("results:  ", results);
+  let photos = results.map( pic =>
+      <Pic url={`https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`} />
+    );
 
   return(
     <ul className="pic-list">
-      <Pic />
+      {photos}
     </ul>
   );
 }
